@@ -1,7 +1,13 @@
 package testing;
-public class LinkedTestProgram<pubilc> {
 
 
+public class LinkedTestProgram{
+
+    public static void intro(){
+        System.out.println();
+        System.out.println("TEST PROGRAM ");
+        System.out.println();
+    }
 
     public void testNode(){
         // Tom, Ben Sam, John, Tim
@@ -16,7 +22,7 @@ public class LinkedTestProgram<pubilc> {
         System.out.println(first);
     }
 
-    public static void print(Node<String> first){
+    public static String print(Node<String> first){
         if (first == null){
             return "[]";
         }else{
@@ -28,6 +34,7 @@ public class LinkedTestProgram<pubilc> {
         }
 
     }
+
     public static void main(String[] args) {
 
     }
