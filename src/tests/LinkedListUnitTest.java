@@ -83,6 +83,26 @@ public class LinkedListUnitTest {
     }
 
 
+    @Test
+    void testClear() {
+        list = new LinkedList<String>();
+        System.out.println("---------------- Test Clear( ) ----------------");
+        assertTrue(list.add("Augustus"));
+        assertTrue(list.add("Balbinus"));
+        assertTrue(list.add("Commodus"));
+        assertTrue(list.add("Decius"));
+        assertTrue(list.add("Florianus"));
+        assertTrue(list.add("Gallienus"));
+        assertTrue(list.add("Valerian"));
+        assertEquals(7, list.size());
+        System.out.println(list);
+        System.out.println("size before: " + list.size());
+        list.clear();
+        assertEquals(0, list.size());
+        System.out.println("size after: " + list.size());
+        System.out.println();
+    }
+
 
     @Test
     void testContains() {
@@ -164,6 +184,27 @@ public class LinkedListUnitTest {
 
         System.out.println(list);
         System.out.println();
+    }
+
+    @Test
+    void testIsEmpty() {
+        System.out.println();
+        list = new LinkedList<String>();
+        System.out.println("-------------- Test isEmpty() --------------");
+        list.add(0,"Augustus");
+        list.add(1,	"Balbinus");
+        list.add(2,	"Cresus");
+        list.add(3, "Commodus");
+        list.add(4, "Decius");
+        list.add(5, "Florianus");
+        list.add(6, "Valerian");
+        assertEquals(7, list.size());
+        assertFalse(list.isEmpty());
+        System.out.println(list);
+        list.clear();
+        System.out.println(list);
+        assertEquals(0, list.size());
+        assertTrue(list.isEmpty());
     }
 
     @Test

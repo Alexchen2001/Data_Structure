@@ -13,6 +13,7 @@ import java.util.NoSuchElementException;
 import utility.ArrayList;
 import utility.List;
 
+
 public class ArrayListUnitTest {
 
     List<String> list;				//global variable
@@ -122,6 +123,27 @@ public class ArrayListUnitTest {
         System.out.println();
     }
 
+    @Test
+    void testClear() {
+        assertNull(list);
+        list = new ArrayList<String>();
+        System.out.println("---------------- Test Clear( ) ----------------");
+        assertTrue(list.add("Augustus"));
+        assertTrue(list.add("Balbinus"));
+        assertTrue(list.add("Commodus"));
+        assertTrue(list.add("Decius"));
+        assertTrue(list.add("Florianus"));
+        assertTrue(list.add("Gallienus"));
+        assertTrue(list.add("Valerian"));
+        assertEquals(7, list.size());
+        System.out.println(list);
+        System.out.println("size before: " + list.size());
+        list.clear();
+        assertEquals(0, list.size());
+        System.out.println("size after: " + list.size());
+        assertThrows(IndexOutOfBoundsException.class, () -> list.get(0));
+        System.out.println();
+    }
 
     @Test
     void testContains() {
@@ -157,7 +179,7 @@ public class ArrayListUnitTest {
     void testEnsureCapacity() {
 
         assertNull(list);
-        list = new ArrayList<String>(5);
+        ArrayList<String> list = new ArrayList<String>(5);
 
         System.out.println("---------------- Test EnsureCapacity( ) ----------------");
         assertTrue(list.add("Augustus"));
@@ -264,6 +286,30 @@ public class ArrayListUnitTest {
         System.out.println("location of Commodus " + list.indexOf("Commodus"));
         System.out.println("location of Valerian " + list.indexOf("Valerian"));
         System.out.println("location of Tiberius " + list.indexOf("Tiberius"));
+        System.out.println();
+    }
+
+    @Test
+    void testIsEmpty() {
+        assertNull(list);
+        list = new ArrayList<String>();
+        System.out.println("---------------- Test IsEmpty( ) ----------------");
+        assertTrue(list.isEmpty());
+        assertTrue(list.add("Augustus"));
+        assertTrue(list.add("Balbinus"));
+        assertTrue(list.add("Commodus"));
+        assertTrue(list.add("Decius"));
+        assertTrue(list.add("Florianus"));
+        assertTrue(list.add("Gallienus"));
+        assertTrue(list.add("Valerian"));
+        assertFalse(list.isEmpty());
+        assertEquals(7, list.size());
+        System.out.println(list);
+        System.out.println("size before: " + list.size());
+        list.clear();
+        assertEquals(0, list.size());
+        assertTrue(list.isEmpty());
+        System.out.println("size after: " + list.size());
         System.out.println();
     }
 
