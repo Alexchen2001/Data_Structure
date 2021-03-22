@@ -97,7 +97,7 @@ public class LinkedList<E> implements List<E>{
         }
 
         //detach from right side
-        if(last == null){
+        if(next == null){
             last = prev;
         }else{
             next.prev = prev;

@@ -42,7 +42,7 @@ public class MyStack<E> {
         return first.data;
 
     }
-    public void push(E item){
+    /*public void push(E item){
         Node<E> newNode = new Node<E>(item);
         first = newNode;     // Top of stack (last item)
 
@@ -50,7 +50,7 @@ public class MyStack<E> {
             last = newNode;
         }
         size ++;
-    }
+    } */
 
     /**********************************************
      * return true, if the stack is empty,

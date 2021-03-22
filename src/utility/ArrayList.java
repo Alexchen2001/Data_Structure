@@ -151,8 +151,7 @@ public class ArrayList<E> implements List<E> {
         checkIndex(index);
         E oldItem = data[index];
         shiftLeft(index);
-        data[size] = null;
-        size--;
+        data[size--] = null;
         return oldItem;
     }
 
@@ -165,7 +164,7 @@ public class ArrayList<E> implements List<E> {
     //need to do
     public boolean remove( E item){
 
-        return item.equals(remove(indexOf(item)));
+        return contains(item) && item.equals(remove(indexOf(item)));
     }
 
     private void shiftLeft(int index){
