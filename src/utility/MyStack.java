@@ -33,7 +33,7 @@ public class MyStack<E> {
 
 
     public E push(E item){
-        Node<E> newNode = new Node(item);
+        Node<E> newNode = new Node(first,item);
         first = newNode;
         if(isEmpty()){
             last = newNode;

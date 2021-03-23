@@ -65,27 +65,9 @@ public class MyStackTest {
     }
 
     public static void main(String[] args) {
-        MyStack<String> stack = new MyStack<String>();
-        stack.push("Red");
-        stack.push("Orange");
-        stack.push("Yellow");
-        stack.push("Green");
-        stack.push("Blue");
-        stack.push("Indigo");
-        stack.push("Violet");
-
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-
-
-//        System.out.println(stack.isEmpty());
-//        System.out.println(stack.peak());
-//        System.out.println(stack.size());
+        libraryVersionTest();
+        System.out.println();
+        myVersionTest();
 
 
     }
