@@ -1,5 +1,7 @@
 package utility;
 
+import java.util.NoSuchElementException;
+
 public class ArrayList<E> implements List<E> {
 
     public static final int DEFAULT_CAPACITY = 10;
@@ -138,7 +140,16 @@ public class ArrayList<E> implements List<E> {
      * @return boolean value.
      *********************************************/
     public boolean isEmpty(){
+
         return size == 0;
+    }
+
+    /**************************************************************
+     * returns an object used to traverse the elements in the list.
+     * @return iterator for list
+     **************************************************************/
+    public Iterator<E> iterator(){
+        return new ArrayIterator();
     }
 
     /*****************************************************
@@ -221,4 +232,38 @@ public class ArrayList<E> implements List<E> {
         }
     }
 
+    private class ArrayIterator implements Iterator<E>{
+        int position;
+        boolean isRemovable;
+
+        public ArrayIterator(){
+            position = 0;
+            isRemovable = false;
+        }
+        public boolean hasNext() {
+            return position < size;
+        }
+
+        public E next() {
+            String message = "No such element left";
+            if(!hasNext()){
+                throw new NoSuchElementException(message);
+            }
+            E currentItem =  data[position];
+            position++;
+            isRemovable = true;
+            return currentItem;
+        }
+
+        public void remove() {
+            String message = "Unable to remove";
+            if(!isRemovable){
+                throw new IllegalStateException(message);
+            }
+            ArrayList.this.remove(--position);
+            isRemovable = false;
+
+
+        }
+    }
 }

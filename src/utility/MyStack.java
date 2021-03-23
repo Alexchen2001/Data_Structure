@@ -42,21 +42,14 @@ public class MyStack<E> {
         return first.data;
 
     }
-    /*public void push(E item){
-        Node<E> newNode = new Node<E>(item);
-        first = newNode;     // Top of stack (last item)
 
-        if(isEmpty()){
-            last = newNode;
-        }
-        size ++;
-    } */
 
     /**********************************************
      * return true, if the stack is empty,
      * @return boolean value.
      *********************************************/
     public boolean isEmpty(){
+
         return first == null;
     }
 

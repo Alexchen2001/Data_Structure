@@ -9,6 +9,19 @@ public class MyStackTest {
         System.out.println("T E S T   P R O G R A M");
         System.out.println();
     }
+//    public static boolean IsSorted(Stack<Integer> s){
+//        int temp1 = s.pop();
+//        int temp2 = s.pop();
+//        for (int i = 0; i < s.size()+2; i++) {
+//            System.out.println(" compare temp1: " + temp1 +"> temp2:" + temp2);
+//            if (temp1 > temp2){
+//                return false;
+//            }
+//            temp1 = temp2;
+//            temp2 = s.pop();
+//        }
+//        return true;
+//    }
 
     public static void libraryVersionTest(){
         Stack<String> stack = new Stack<>();
@@ -52,8 +65,28 @@ public class MyStackTest {
     }
 
     public static void main(String[] args) {
-        intro();
-        libraryVersionTest();
-        myVersionTest();
+        MyStack<String> stack = new MyStack<String>();
+        stack.push("Red");
+        stack.push("Orange");
+        stack.push("Yellow");
+        stack.push("Green");
+        stack.push("Blue");
+        stack.push("Indigo");
+        stack.push("Violet");
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
+
+//        System.out.println(stack.isEmpty());
+//        System.out.println(stack.peak());
+//        System.out.println(stack.size());
+
+
     }
 }

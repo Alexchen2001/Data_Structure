@@ -1,5 +1,7 @@
 package utility;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList<E> implements List<E>{
 
     private Node<E> first;
@@ -164,6 +166,14 @@ public class LinkedList<E> implements List<E>{
         return first == null;
     }
 
+    /**************************************************************
+     * returns an object used to traverse the elements in the list.
+     * @return iterator for list
+     **************************************************************/
+    public Iterator<E> iterator(){
+        return new LinkedIterator();
+    }
+
     public Node<E> node(int index){
         Node<E> current;
         if (index < size / 2){
@@ -241,6 +251,44 @@ public class LinkedList<E> implements List<E>{
                 result.append(", ").append(node.data);
             }
             return result.append("]").toString();
+        }
+    }
+
+    private class LinkedIterator implements Iterator<E>{
+        Node<E> current;
+        int position;
+        boolean isRemovable;
+
+        public LinkedIterator(){
+            current = first;
+            position = 0;
+            isRemovable = false;
+        }
+
+        public boolean hasNext() {
+            return position < size;
+        }
+
+        public E next() {
+            String message = "No such element left";
+            if(!hasNext()){
+                throw new NoSuchElementException(message);
+            }
+            E currentItem = current.data;
+            current = current.next;
+            position++;
+            isRemovable = true;
+            return currentItem;
+        }
+
+        public void remove() {
+            String message = "Unable to remove";
+            if(!isRemovable){
+                throw new IllegalStateException(message);
+            }
+            LinkedList.this.remove(--position);
+            isRemovable = false;
+
         }
     }
 

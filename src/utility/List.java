@@ -9,6 +9,7 @@ public interface List<E> {
     E get(int index);
     int indexOf(E item);
     boolean isEmpty();
+    Iterator<E> iterator();
     E remove(int index);
     boolean remove(E item);
     E set(int index, E item);
